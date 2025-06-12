@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wdth@75..100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wdth,wght@75..100,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wdth,wght@75..100,700&display=swap');
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+* {
+    font-family: 'Roboto', serif;
+}
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    /* Disables pull-to-refresh but allows overscroll glow effects. */
+    overscroll-behavior-y: contain;
+}
+.font-roboto {
+    font-family: 'Roboto', serif;
+}
+.font-timmana {
+    font-family: "Timmana", serif;
+}
+.font-open-sans {
+    font-family: 'Roboto', serif;
+}
+.font-rubik {
+    font-family: 'Roboto', serif;
+}
+.font-rubik-sans {
+    font-family: Rubik, sans-serif;
+}
+.radiogroup fieldset{
+    display: flex;
+}
+.radiogroup2 fieldset div:nth-child(2) div{
+    padding-left: 15px;
+}
+.radiogroup2 fieldset div:nth-child(2) div label{
+    margin-left: -15px;
+}
+.radiogroup2 fieldset div:nth-child(3) div{
+    padding-left: 15px;
+}
+.radiogroup2 fieldset div:nth-child(3) div label{
+    margin-left: -15px;
+}
+/*For Delete*/
+.label-pin {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: url("/editor/images/label-pin.png");
+    background-size: cover;
+    cursor: pointer;
+    z-index: -1;
+}
+.label-pin.css2{
+    width: 30px;
+    height: 30px;
+}
+.label-pin:hover{
+    z-index: 1;
+}
+.label{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12rem;
+    height: fit-content;
+    padding: 0.75rem;
+    border-radius: 4px;
+    background-color: rgb(249 249 249);
+    border: 2px solid rgb(235 236 240);
+    pointer-events: auto
+}
+.label-pin:hover .label{
+    display: block;
+}
+.label__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.label__title{
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(33 33 33);
+    margin-bottom: 0.75rem;
+}
+.label__content{
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgb(107 114 128);
+    margin-bottom: 0.5rem;
+}
+.label__link{
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: red;
+}
+img {
+    user-drag: none; /* For Safari */
+    -webkit-user-drag: none; /* For WebKit browsers */
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.parity-banner-logo {
+    display: none;
+}
+[data-v-onboarding-wrapper] [data-popper-arrow]::before {
+    content: '';
+    background: #f9f9f9 !important;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s ease-out, visibility 0.2s ease-out;
+    visibility: visible;
+    transform: translateX(0px) rotate(45deg);
+    transform-origin: center;
+    width: var(--v-onboarding-step-arrow-size, 10px);
+    height: var(--v-onboarding-step-arrow-size, 10px);
+    position: absolute;
+    z-index: -1;
+    border: 1px solid #f9f9f9 !important;
+}
