@@ -1,24 +1,25 @@
 <template>
   <div id="home">
-    <div class="fixed top-0 z-50 w-full border-b border-gray-400">
-      <div class="max-w-[1200px] w-full mx-auto  bg-[#fffc] flex justify-between px-[24px] py-4">
-        <div>
-          <NuxtLink to="/#home">
-            <img src="/images/logo.svg" alt="Logo img"/>
-          </NuxtLink>
-        </div>
-        <div class="my-auto">
-          <button
-              class="flex items-center justify-between bg-white py-[6px] border-solid text-[#404040] px-[20px]  gap-[8px] rounded-2xl text-sm border border-gray-300  hover:bg-gray-100 transition-all duration-300 "
-          >
-            <i class="fa-regular fa-user"></i>
-            Sign in
-          </button>
-        </div>
-      </div>
-    </div>
+<!--    <div class="fixed top-0 z-50 w-full border-b border-gray-400">-->
+<!--      <div class="max-w-[1200px] w-full mx-auto  bg-[#fffc] flex justify-between px-[24px] py-4">-->
+<!--        <div>-->
+<!--          <NuxtLink to="/#home">-->
+<!--            <img src="/images/logo.svg" alt="Logo img"/>-->
+<!--          </NuxtLink>-->
+<!--        </div>-->
+<!--        <div class="my-auto">-->
+<!--          <button-->
+<!--              class="flex items-center justify-between bg-white py-[6px] border-solid text-[#404040] px-[20px]  gap-[8px] rounded-2xl text-sm border border-gray-300  hover:bg-gray-100 transition-all duration-300 "-->
+<!--          >-->
+<!--            <i class="fa-regular fa-user"></i>-->
+<!--            Sign in-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <navbar/>
   </div>
-  <div class="max-w-[1280px] w-full mx-auto py-[150px] flex flex-col lg:flex-row gap-8">
+  <div class="max-w-[1280px] w-full mx-auto  py-[150px] flex flex-col lg:flex-row gap-8 lg:px-[24px] px-[16px]">
     <div class="absolute top-40 right-40 w-80 h-80 bg-[#864bff]/10 rounded-full blur-3xl"></div>
     <div class="absolute bottom-40 left-10 w-80 h-80 bg-[#864bff]/10 rounded-full blur-2xl"></div>
     <div class="flex-1 flex flex-col">
@@ -154,7 +155,7 @@
     </div>
   </div>
   <div class="py-16 lg:py-24 bg-gray-50">
-    <div class="max-w-[1200px] w-full px-[24px] mx-auto">
+    <div class="max-w-[1200px]  mx-auto w-full lg:px-[24px] px-[16px]">
       <div class="text-center mb-16 lg:mb-20 transition-all duration-1000 transform opacity-100 translate-y-0">
         <h1 class="text-3xl  font-semibold text-black mb-6 text-center">Why ours actually works</h1>
         <p
@@ -262,8 +263,7 @@
     </div>
   </div>
   <div class="py-16 lg:py-24 bg-white">
-
-    <div class="max-w-[1200px] w-full px-[24px] mx-auto">
+    <div class="max-w-[1200px] w-full  mx-auto lg:px-[24px] px-[16px]">
       <div class="text-center mb-16 lg:mb-20 transition-all duration-100">
         <h2 class="lg:text-[30px] text-4xl font-semibold text-black mb-6">See the difference</h2>
         <p class="text-[14px] text-[#525252]">
@@ -376,8 +376,8 @@
       </div>
     </div>
   </div>
-  <div>
-    <div class=" bg-white">
+  <div class="max-w-[1200px]  mx-auto w-full lg:px-[24px] px-[16px]">
+    <div class="bg-white">
       <div class="text-center mb-[30px]  transition-all duration-1000 transform opacity-100 translate-y-0">
         <h3 class="text-[30px] font-semibold text-black mb-[32px] text-center">
           What people actually use it for
@@ -412,7 +412,7 @@
     </div>
   </div>
   <div class="py-16  bg-white">
-      <div class="max-w-[1200px] w-full mx-auto ">
+      <div class="max-w-[1200px]  mx-auto w-full lg:px-[24px] px-[16px]">
         <div class="text-center mb-16 lg:mb-20 transition-all duration-1000 transform opacity-100 translate-y-0">
           <h2 class="text-[30px] font-semibold text-black mb-6 text-center">Questions people actually ask</h2>
           <p class="text-[14px] text-gray-600 max-w-2xl mx-auto text-center leading-relaxed">Straight answers to the things you're probably wondering about.</p>
@@ -443,9 +443,13 @@
 </style>
 <script setup>
 
-definePageMeta({
-  colorMode: 'light'
-})
+
+// definePageMeta({
+//   colorMode: 'light',
+//   middleware: ['auth', 'only-studio'],
+//   authType: 'only-guest'
+// })
+
 
 const selectedFiles = ref([]);
 const errorMessage = ref('');

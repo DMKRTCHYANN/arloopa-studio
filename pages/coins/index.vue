@@ -1,4 +1,5 @@
 <template>
+  <navbar/>
   <div class="bg-white min-h-screen flex justify-center items-center">
     <section
         class="flex flex-col items-center px-[20px] max-w-[1146px] overflow-y-auto mx-auto md:justify-center w-full"
@@ -41,8 +42,10 @@
 
 <script setup>
 // definePageMeta({
-//   middleware: 'auth'
+//   middleware: ['auth'],
+//   authType: 'only-auth',
 // })
+
 
 // refs
 const loading = ref(false)

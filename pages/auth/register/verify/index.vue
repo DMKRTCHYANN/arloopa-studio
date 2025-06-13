@@ -32,11 +32,11 @@ import {storeToRefs} from "pinia";
 import {useUiStore} from "~/store/ui/ui.js";
 import useAuthFetch from "~/composables/useAuthFetch.js";
 
-definePageMeta({
-  layout: 'auth',
-  // middleware: ['auth'],
-  authType: 'only-auth'
-})
+// definePageMeta({
+//   layout: 'auth',
+//   middleware: ['auth'],
+//   authType: 'only-auth'
+// })
 
 const toast = useToast()
 const router = useRouter()
@@ -174,7 +174,6 @@ async function verify() {
       }
     } else {
 
-      ampli.userActivate()
 
       await retrieveUser()
 
@@ -205,4 +204,5 @@ async function onLogout() {
     await navigateTo('/auth/login')
   }
 }
+
 </script>

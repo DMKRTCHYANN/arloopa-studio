@@ -11,7 +11,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
     if (to.query.im) {
         const impersonateToken = useCookie('impersonate_token')
         impersonateToken.value = to.query.im
-        return navigateTo('/back')
+        return navigateTo('/')
     }
 
     const authStore = useAuthStore()
@@ -51,7 +51,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
         }
     } else if (to.meta.authType === 'only-auth') {
         if (!authenticated) {
-            return navigateTo('/home')
+            return navigateTo('/')
         }
 
         if(to.name !== 'auth-register-verify' && user.value.email_verified_at === null) {

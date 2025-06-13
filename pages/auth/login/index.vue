@@ -88,9 +88,13 @@ useHead({
     }
   ]
 })
+
 definePageMeta({
-authType: 'only-guest'
+  layout: 'auth',
+  // middleware: ['auth'],
+  // authType: 'only-guest'
 })
+
 const router = useRouter()
 const config = useRuntimeConfig()
 const authStore = useAuthStore()
@@ -119,13 +123,11 @@ async function login() {
   const successLogin = await authenticateUser(form.value.email, form.value.password)
 
   if (!successLogin) {
-    error.value = t('invalid_credentials')
+    error.value = 'Invalid username or password'
     return
   }
 
-  ampli.userLogin({
-    provider: 'email',
-  })
+
 
   error.value = ''
 
@@ -140,13 +142,11 @@ async function facebookLogin(res) {
   const successLogin = await authenticateUserFacebook(res.authResponse.accessToken)
 
   if (!successLogin) {
-    error.value = t('invalid_credentials')
+    error.value = 'Invalid username or password'
     return
   }
 
-  ampli.userLogin({
-    provider: 'facebook',
-  })
+
 
   error.value = ''
 
@@ -158,13 +158,11 @@ async function googleLogin(res) {
   const successLogin = await authenticateUserGoogle(res.credential)
 
   if (!successLogin) {
-    error.value = t('invalid_credentials')
+    error.value = 'Invalid username or password'
     return
   }
 
-  ampli.userLogin({
-    provider: 'google',
-  })
+
 
   error.value = ''
 
@@ -175,13 +173,10 @@ async function appleLogin(res) {
   const successLogin = await authenticateUserApple(res.authorization.id_token)
 
   if (!successLogin) {
-    error.value = t('invalid_credentials')
+    error.value = 'Invalid username or password'
     return
   }
 
-  ampli.userLogin({
-    provider: 'apple',
-  })
 
   error.value = ''
 
@@ -191,12 +186,10 @@ async function appleLogin(res) {
 async function microsoftLogin() {
   const successLogin = await authenticateUserMicrosoft()
   if (!successLogin) {
-    error.value = t('invalid_credentials')
+    error.value = 'Invalid username or password'
     return
   }
-  ampli.userLogin({
-    provider: 'microsoft',
-  })
+
   error.value = ''
   await router.push('/')
 }

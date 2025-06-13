@@ -78,7 +78,7 @@ useHead({
 definePageMeta({
   layout: 'auth',
   // middleware: ['auth', 'only-studio'],
-  authType: 'only-guest'
+  // authType: 'only-guest'
 })
 
 const router = useRouter()
@@ -116,9 +116,7 @@ async function register() {
     loading.value = false
     return
   }
-  ampli.userRegister({
-    provider: 'email',
-  })
+
   await authenticateUser(form.value.email, form.value.password)
   loading.value = false
   await router.push('/auth/register/verify')
@@ -133,9 +131,7 @@ async function facebookLogin(res) {
     error.value = 'Invalid username or password'
     return
   }
-  ampli.userRegister({
-    provider: 'facebook',
-  })
+
   error.value = ''
   await router.push('/')
 }
@@ -147,9 +143,7 @@ async function googleLogin(res) {
     error.value = 'Invalid username or password'
     return
   }
-  ampli.userRegister({
-    provider: 'google',
-  })
+
   error.value = ''
   await router.push('/')
 }
@@ -160,9 +154,7 @@ async function appleLogin(res) {
     error.value = 'Invalid username or password'
     return
   }
-  ampli.userRegister({
-    provider: 'apple',
-  })
+
   error.value = ''
   await router.push('/')
 }
