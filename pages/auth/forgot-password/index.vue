@@ -27,8 +27,8 @@ import {storeToRefs} from "pinia";
 
 definePageMeta({
   layout: 'auth',
-  // middleware: 'auth',
-  // authType: 'only-guest',
+  middleware: 'auth',
+  authType: 'only-guest',
 })
 
 const router = useRouter()

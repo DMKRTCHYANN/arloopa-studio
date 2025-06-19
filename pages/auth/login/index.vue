@@ -66,8 +66,11 @@
       <span class="text-[16px] mr-[5px]">
         Don’t have an account?
       </span>
+<!--      <nuxt-link to="/auth/register" class="text-[16px] font-bold text-[#0165FF]">-->
+<!--        Sing up-->
+<!--      </nuxt-link>-->
       <nuxt-link to="/auth/register" class="text-[16px] font-bold text-[#0165FF]">
-        Sing up
+        Sign up
       </nuxt-link>
     </div>
   </div>
@@ -91,8 +94,8 @@ useHead({
 
 definePageMeta({
   layout: 'auth',
-  // middleware: ['auth'],
-  // authType: 'only-guest'
+  middleware: ['auth'],
+  authType: 'only-guest'
 })
 
 const router = useRouter()

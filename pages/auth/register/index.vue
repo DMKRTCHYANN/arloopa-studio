@@ -75,10 +75,11 @@ useHead({
     }
   ]
 })
+
 definePageMeta({
   layout: 'auth',
-  // middleware: ['auth', 'only-studio'],
-  // authType: 'only-guest'
+  middleware: ['auth'],
+  authType: 'only-guest'
 })
 
 const router = useRouter()
@@ -154,7 +155,6 @@ async function appleLogin(res) {
     error.value = 'Invalid username or password'
     return
   }
-
   error.value = ''
   await router.push('/')
 }

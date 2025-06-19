@@ -7,8 +7,8 @@
         </NuxtLink>
       </div>
       <div v-if="user">
-        <div class="flex flex-row items-center">
-          <div class="flex flex-row items-center ml-[28px] md:block hidden">
+        <div class="flex-row items-center flex">
+          <div class="flex-row items-center ml-[28px] lg:flex hidden">
             <nuxt-link to="/coins" class="w-full bg-[#F4F5F7] rounded-full pr-[8px] pl-[24px] relative block"
                        @click="() => {sendNavigationEvent('coins')}">
               <span v-if="coins">{{ coins }}</span>
@@ -16,20 +16,20 @@
               <img src="/images/layout/coin.svg" class="w-8 h-8 absolute top-[-6px] left-[-15px]">
             </nuxt-link>
           </div>
+<!--          <div-->
+<!--              class="rounded-lg flex flex-row justify-center items-center leading-5 max-w-[250px] bg-[#F4F5F7] py-2.5 px-3.5 xl:ml-6 ml-4"-->
+<!--              @click="toggleMobileProfileMenu">-->
+<!--            <div :style="`background-image: url('${user?.profile_picture_url ?? '/images/layout/Rectangle.svg'}')`"-->
+<!--                 class="w-[32px] h-[32px] rounded-full overflow-hidden mr-[12px] bg-cover bg-center"/>-->
+<!--            <p v-if="user" class="ml-1 text-xs font-Roboto not-italic font-semibold  leading-[18px]">-->
+<!--              {{ user ? user.name : '' }}-->
+<!--            </p>-->
+<!--            <div class="bg-[#C9D0DC] w-5 h-5 rounded-full ml-4 select-none">-->
+<!--              <img :src="`/images/layout/down.svg`" class=" my-1 mx-1 ">-->
+<!--            </div>-->
+<!--          </div>-->
           <div
-              class="rounded-lg flex flex-row justify-center items-center leading-5 max-w-[250px] bg-[#F4F5F7] py-2.5 px-3.5 xl:ml-6 ml-4 md:hidden cursor-pointer"
-              @click="toggleMobileProfileMenu">
-            <div :style="`background-image: url('${user?.profile_picture_url ?? '/images/layout/Rectangle.svg'}')`"
-                 class="w-[32px] h-[32px] rounded-full overflow-hidden mr-[12px] bg-cover bg-center"/>
-            <p v-if="user" class="ml-1 text-xs font-Roboto not-italic font-semibold  leading-[18px]">
-              {{ user ? user.name : '' }}
-            </p>
-            <div class="bg-[#C9D0DC] w-5 h-5 rounded-full ml-4 select-none">
-              <img :src="`/images/layout/down.svg`" class=" my-1 mx-1 ">
-            </div>
-          </div>
-          <div
-              class="rounded-lg flex-row justify-center items-center leading-5 max-w-[250px] bg-[#F4F5F7] py-2.5 px-3.5 xl:ml-6 ml-4 md:flex hidden">
+              class="rounded-lg flex-row justify-center items-center leading-5 max-w-[250px] bg-[#F4F5F7] py-2.5 px-3.5 xl:ml-6 ml-4 flex">
             <div :style="`background-image: url('${user?.profile_picture_url ?? '/images/layout/Rectangle.svg'}')`"
                  class="w-[32px] h-[32px] rounded-full overflow-hidden mr-[12px] bg-cover bg-center"/>
             <p v-if="user" class="ml-1 text-xs font-Roboto not-italic font-semibold  leading-[18px]">
@@ -37,13 +37,14 @@
             </p>
             <div class="bg-[#C9D0DC] w-5 h-5 rounded-full ml-4 select-none">
               <UDropdown
-                  v-model:open="profileDropdownOpened" class="relative" :items="[ [{ slot: 'account', disabled: true }] ]"
+                  v-model:open="profileDropdownOpened" class="relative"
+                  :items="[ [{ slot: 'account', disabled: true }] ]"
                   :ui="{ item: { disabled: 'cursor-default select-text', padding: 'p-0'}, padding: 'px-[20px] pt-[8px] pb-[16px]', ring: 'ring-0', shadow: 'shadow-none',  width: 'w-full max-w-[220px]', base: 'mt-[10px]', divide: 'divide-y divide-white dark:divide-gray-700' }"
                   :popper="{ placement: 'bottom-end'  }">
                 <img :src="`${profileDropdownOpened ? '/images/layout/up.svg' : '/images/layout/down.svg'}`"
-                     class=" my-1 mx-1 ">
+                     class="my-1 mx-1">
                 <template #account="{ item }">
-                  <NavBarDropDown
+                  <NavbarDropDown
                       :name=" user ? user.name : ''"
                       :email="user ? user.email : ''"
                   />
@@ -76,7 +77,7 @@ import {storeToRefs} from 'pinia'
 import {useAuthStore} from '~/store/auth.js'
 import {useCoinsStore} from '~/store/billing/coins.js'
 import {useExperiencesCountStore} from "~/store/experiences/count.js";
-import NavBarDropDown from "~/components/layout/navbar/NavBarDropDown.vue";
+import NavbarDropDown from "~/components/layout/navbar/navbar-drop-down.vue";
 import {useUiStore} from "~/store/ui/ui.js";
 
 // globals
@@ -98,7 +99,7 @@ const {toggleMobileMenu, toggleMobileProfileMenu} = uiStore
 const {fetchCoins, startAutoFetch, stopAutoFetch} = coinsStore
 const {fetchExperiencesCount} = experiencesCountStore
 
-// const homePageDisabled = ref(router.currentRoute.value.path);
+const homePageDisabled = ref(router.currentRoute.value.path);
 const profileDropdownOpened = ref(false)
 
 // const pageTitle = computed(() => {

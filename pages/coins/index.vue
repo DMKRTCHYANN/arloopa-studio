@@ -41,11 +41,10 @@
 </template>
 
 <script setup>
-// definePageMeta({
-//   middleware: ['auth'],
-//   authType: 'only-auth',
-// })
-
+definePageMeta({
+  middleware: ['auth'],
+  authType: 'only-auth',
+})
 
 // refs
 const loading = ref(false)

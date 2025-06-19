@@ -32,7 +32,7 @@ const items = [{
           sm: 'p-[20px]'
         },
       }">
-        <span class="truncate text-xl">{{ item.label }}</span>
+        <span class="truncate md:text-[20px] text-[14px]">{{ item.label }}</span>
         <template #trailing>
           <UIcon
               name="i-heroicons-chevron-right-20-solid"

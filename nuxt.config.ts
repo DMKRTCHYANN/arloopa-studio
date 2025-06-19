@@ -5,6 +5,7 @@ export default defineNuxtConfig({
         '@nuxt/ui',
         'nuxt-proxy',
         '@pinia/nuxt',
+        'nuxt-aos',
     ],
     colorMode: {
         preference: 'light'
@@ -17,13 +18,12 @@ export default defineNuxtConfig({
         options: {
             target: process.env.BASE_URL,
             changeOrigin: true,
-            pathRewrite: { '^/api': '' },
+            pathRewrite: {'^/api': ''},
             pathFilter: [
                 '/api'
             ]
         }
     },
-
     runtimeConfig: {
         public: {
             BASE_URL: process.env.BASE_URL,
@@ -34,6 +34,7 @@ export default defineNuxtConfig({
             GOOGLE_MAPS_KEY: process.env.GOOGLE_MAPS_KEY,
             GHOST_KEY: process.env.GHOST_KEY,
             MIXPANEL_PROJECT_TOKEN: process.env.MIXPANEL_PROJECT_TOKEN,
+            AMAZON_URL: process.env.AMAZON_URL || '',
             ENVIRONMENT: process.env.ENVIRONMENT ?? 'production'
         }
     },
@@ -42,5 +43,10 @@ export default defineNuxtConfig({
             tailwindcss: {},
             autoprefixer: {},
         },
+    },
+    aos: {
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: false,
     },
 })
